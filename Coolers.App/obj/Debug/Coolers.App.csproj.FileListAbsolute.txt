@@ -1,0 +1,6 @@
+c:\development\Coolers\Coolers.App\bin\Debug\Coolers.App.exe.config
+c:\development\Coolers\Coolers.App\bin\Debug\Coolers.App.exe
+c:\development\Coolers\Coolers.App\bin\Debug\Coolers.App.pdb
+c:\development\Coolers\Coolers.App\obj\Debug\Coolers.App.csprojResolveAssemblyReference.cache
+c:\development\Coolers\Coolers.App\obj\Debug\Coolers.App.exe
+c:\development\Coolers\Coolers.App\obj\Debug\Coolers.App.pdb

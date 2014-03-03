@@ -1,0 +1,4 @@
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Repositories.dll
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Repositories.pdb
+c:\development\Coolers\Coolers.Repositories\obj\Debug\Coolers.Repositories.dll
+c:\development\Coolers\Coolers.Repositories\obj\Debug\Coolers.Repositories.pdb

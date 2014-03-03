@@ -1,0 +1,5 @@
+c:\development\Coolers\Coolers.Tests\bin\Debug\Coolers.Tests.dll
+c:\development\Coolers\Coolers.Tests\bin\Debug\Coolers.Tests.pdb
+c:\development\Coolers\Coolers.Tests\obj\Debug\Coolers.Tests.csprojResolveAssemblyReference.cache
+c:\development\Coolers\Coolers.Tests\obj\Debug\Coolers.Tests.dll
+c:\development\Coolers\Coolers.Tests\obj\Debug\Coolers.Tests.pdb
