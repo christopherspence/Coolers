@@ -45,6 +45,7 @@ namespace Coolers.DAL.Implementation
         {
             // Fill out the default coolers
             Database.SetInitializer<UnitOfWork>(new CoolerDBInitializer());
+            this.Database.Initialize(false);
         }
 
 

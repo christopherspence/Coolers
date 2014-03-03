@@ -1,4 +1,14 @@
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Repositories.dll.config
 c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Repositories.dll
 c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Repositories.pdb
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.DAL.dll
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Models.dll
+c:\development\Coolers\Coolers.Repositories\bin\Debug\EntityFramework.dll
+c:\development\Coolers\Coolers.Repositories\bin\Debug\EntityFramework.SqlServer.dll
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.DAL.pdb
+c:\development\Coolers\Coolers.Repositories\bin\Debug\Coolers.Models.pdb
+c:\development\Coolers\Coolers.Repositories\bin\Debug\EntityFramework.xml
+c:\development\Coolers\Coolers.Repositories\bin\Debug\EntityFramework.SqlServer.xml
+c:\development\Coolers\Coolers.Repositories\obj\Debug\Coolers.Repositories.csprojResolveAssemblyReference.cache
 c:\development\Coolers\Coolers.Repositories\obj\Debug\Coolers.Repositories.dll
 c:\development\Coolers\Coolers.Repositories\obj\Debug\Coolers.Repositories.pdb

@@ -1,5 +1,4 @@
-﻿using Coolers.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,58 +13,26 @@ namespace Coolers.Models
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public float SizeInMilliliters { get; set; }
-        public IEnumerable<CoolerOption> CoolerRequirements { get; set; }
+        public float Size { get; set; }
+
+        public bool NeedsSealed { get; set; }
+        public bool NeedsIced { get; set; }
+        public bool NeedsCryogenized { get; set; }
 
         public Cooler Cooler { get; set; }
 
-        [NotMapped]
-        public bool NeedsSealed
+        public static Beverage Create(Guid id, string name, float size, bool needsSealed, bool needsIced, bool needscryogenized)
         {
-            get
+            return new Beverage
             {
-                foreach (CoolerOption option in this.CoolerRequirements)
-                {
-                    if (option == CoolerOption.Sealed)
-                        return true;
-                }
-
-                return false;
-            }
+                Id = id,
+                Name = name,
+                Size = size,
+                NeedsIced = needsIced,
+                NeedsSealed = needsSealed,
+                NeedsCryogenized = needscryogenized
+            };
         }
-
-        [NotMapped]
-        public bool NeedsIced
-        {
-            get
-            {
-                foreach (CoolerOption option in this.CoolerRequirements)
-                {
-                    if (option == CoolerOption.Iced)
-                        return true;
-                }
-
-                return false;
-            }
-        }
-
-        [NotMapped]
-        public bool NeedsCryonized
-        {
-            get
-            {
-                foreach (CoolerOption option in this.CoolerRequirements)
-                {
-                    if (option == CoolerOption.Cryonized)
-                        return true;
-                }
-
-                return false;
-            }
-        }
-
-
-
 
         #region IValidatable methods
         
@@ -73,8 +40,10 @@ namespace Coolers.Models
         {
             List<ValidationResult> validationResults = new List<ValidationResult>();
 
+            if (this.Id == null)
+                validationResults.Add(new ValidationResult("Beverage requires an id"));
             if (string.IsNullOrEmpty(this.Name))
-                validationResults.Add(new ValidationResult(Messages.BeverageNameEmpty));
+                validationResults.Add(new ValidationResult("Beverage name cannot be empty"));
 
             return validationResults;
         }

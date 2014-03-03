@@ -10,6 +10,6 @@ namespace Coolers.Models
     {
         Iced = 0, 
         Sealed = 1,
-        Cryonized = 2
+        cryogenized = 2
     }
 }

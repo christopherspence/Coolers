@@ -13,7 +13,7 @@ namespace Coolers.Repositories.Contract
         /// <summary>
         /// Get the unit of work for this repo
         /// </summary>
-        IUnitOfWork UnitOfWork { get; set; }
+        IQueryableUnitOfWork UnitOfWork { get;  }
 
         /// <summary>
         /// Add item into repository
@@ -52,6 +52,13 @@ namespace Coolers.Repositories.Contract
         /// <param name="filter"></param>
         /// <returns></returns>
         IEnumerable<T> GetFiltered(Expression<Func<T, bool>> filter);
+
+        /// <summary>
+        /// Merge with an existing entity
+        /// </summary>
+        /// <param name="persisted"></param>
+        /// <param name="current"></param>
+        void Merge(T persisted, T current);
 
     }
 }

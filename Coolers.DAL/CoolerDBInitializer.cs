@@ -17,8 +17,8 @@ namespace Coolers.DAL
         {
             IList<Cooler> defaultCoolers = new List<Cooler>
             {
-                new Cooler { Name = "Cooler 1", SizeInMilliliters = 20f, CoolerOptions = new List<CoolerOption> { CoolerOption.Iced, CoolerOption.Sealed } },
-                new Cooler { Name = "Cooler 2", SizeInMilliliters = 5f, CoolerOptions = new List<CoolerOption> { CoolerOption.Sealed, CoolerOption.Cryonized } }
+                new Cooler { Id = Guid.NewGuid(), Name = "Cooler 1", MaxCapacity = 20f, Iced = true, Sealed = true },
+                new Cooler { Id = Guid.NewGuid(), Name = "Cooler 2", MaxCapacity = 5f, Sealed = true, Cryogenized = true }
             };
 
             foreach (Cooler defaultCooler in defaultCoolers)

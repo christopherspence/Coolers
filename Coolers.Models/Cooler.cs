@@ -13,9 +13,13 @@ namespace Coolers.Models
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public float SizeInMilliliters { get; set; }
-        public IEnumerable<CoolerOption> CoolerOptions { get; set; }
-        public IEnumerable<Beverage> Beverages { get; set; }
+        public float MaxCapacity { get; set; }
+
+        public bool Iced { get; set; }
+        public bool Sealed { get; set; }
+        public bool Cryogenized { get; set; }
+   
+        public IList<Beverage> Beverages { get; set; }  
 
         [NotMapped]
         public float CurrentCapacity
@@ -25,83 +29,54 @@ namespace Coolers.Models
                 float currentCapacity = 0;
 
                 foreach (Beverage beverage in this.Beverages)
-                    currentCapacity += beverage.SizeInMilliliters;
+                    currentCapacity += beverage.Size;
 
                 return currentCapacity;
             }
         }
-        
-        [NotMapped]
-        public bool IsIced
-        {
-            get
-            {
-                foreach (CoolerOption option in this.CoolerOptions)
-                {
-                    if (option == CoolerOption.Iced)
-                        return true;
-                }
 
-                return false;
-            }
-        }
-
-        [NotMapped]
-        public bool IsSealed
-        {
-            get
-            {
-                foreach (CoolerOption option in this.CoolerOptions)
-                {
-                    if (option == CoolerOption.Sealed)
-                        return true;
-                }
-
-                return false;
-            }
-        }
-
-        [NotMapped]
-        public bool IsCryonized
-        {
-            get
-            {
-                foreach (CoolerOption option in this.CoolerOptions)
-                {
-                    if (option == CoolerOption.Cryonized)
-                        return true;
-                }
-
-                return false;
-            }
-        }
-   
         public Cooler()
         {
-            this.CoolerOptions = new List<CoolerOption>();
             this.Beverages = new List<Beverage>();
         }
+
+        public static Cooler Create(Guid id, string name, float maxCapacity, bool iced, bool isSealed, bool cryogenized)
+        {
+            return new Cooler
+            {
+                Id = id,
+                MaxCapacity = maxCapacity,
+                Iced = iced,
+                Sealed = isSealed,
+                Cryogenized = cryogenized
+            };
+        }        
          
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             List<ValidationResult> validationErrors = new List<ValidationResult>();
 
-            if (string.IsNullOrEmpty(Name))
-                validationErrors.Add(new ValidationResult(Messages.BeverageNameEmpty));
+            if (string.IsNullOrEmpty(this.Name))
+                validationErrors.Add(new ValidationResult("Cooler Name is Required"));
             
             // Now check the cooler capacity
-            if (this.CurrentCapacity > this.SizeInMilliliters)
-                validationErrors.Add(new ValidationResult(Messages.CoolerLimitExceeded));
+            if (this.CurrentCapacity > this.MaxCapacity)
+                validationErrors.Add(new ValidationResult("Cooler Limit has been Exceeded"));
 
             // Make sure all the beverages are of the right type for this cooler.
             foreach (Beverage beverage in this.Beverages)
             {
-                if (beverage.NeedsIced && !this.IsIced)
-                    validationErrors.Add(new ValidationResult(Messages.IcedNotSupported));
-                else if (beverage.NeedsSealed && !this.IsSealed)
-                    validationErrors.Add(new ValidationResult(Messages.SealedNotSupported));
-                else if (beverage.NeedsCryonized && !this.IsCryonized)
-                    validationErrors.Add(new ValidationResult(Messages.CryoNotSupported));
+                // iced and sealed beverages get a free pass in cryogenized coolers
+                if (beverage.NeedsIced && this.Cryogenized)
+                    continue;
+
+                if (beverage.NeedsIced && !this.Iced)
+                    validationErrors.Add(new ValidationResult(String.Format("{0} - Iced Beverages aren't supported in this cooler", beverage.Name)));
+                else if (beverage.NeedsSealed && !this.Sealed)
+                    validationErrors.Add(new ValidationResult(String.Format("{0} - Iced Beverages aren't supported in this cooler", beverage.Name)));
+                else if (beverage.NeedsCryogenized && !this.Cryogenized)
+                    validationErrors.Add(new ValidationResult(String.Format("{0} - Cryogenized Beverages aren't supported in this cooler", beverage.Name)));
+                  
             }
 
             return validationErrors;

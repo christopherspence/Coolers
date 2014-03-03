@@ -35,7 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +61,34 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CoolerManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Coolers.Common\Coolers.Common.csproj">
+      <Project>{438af203-82e5-4703-b9d9-aae12eb4c0f8}</Project>
+      <Name>Coolers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coolers.DAL\Coolers.DAL.csproj">
+      <Project>{4ccf9600-0711-45fe-910b-a73cd67b9bdd}</Project>
+      <Name>Coolers.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coolers.Managers\Coolers.Managers.csproj">
+      <Project>{25b4e660-330c-402a-8a57-c204a23d8747}</Project>
+      <Name>Coolers.Managers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coolers.Models\Coolers.Models.csproj">
+      <Project>{677d3be2-9e70-4e2b-966e-30b34a05588b}</Project>
+      <Name>Coolers.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coolers.Repositories\Coolers.Repositories.csproj">
+      <Project>{4c9941bd-fb22-4570-8f0e-388f288b1f84}</Project>
+      <Name>Coolers.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
