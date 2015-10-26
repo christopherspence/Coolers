@@ -1,5 +1,0 @@
-c:\development\Coolers\Coolers.Common\bin\Debug\Coolers.Common.dll
-c:\development\Coolers\Coolers.Common\bin\Debug\Coolers.Common.pdb
-c:\development\Coolers\Coolers.Common\obj\Debug\Coolers.Common.csprojResolveAssemblyReference.cache
-c:\development\Coolers\Coolers.Common\obj\Debug\Coolers.Common.dll
-c:\development\Coolers\Coolers.Common\obj\Debug\Coolers.Common.pdb

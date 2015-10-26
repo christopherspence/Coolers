@@ -1,8 +1,0 @@
-c:\development\Coolers\Coolers.Models\bin\Debug\Coolers.Models.dll
-c:\development\Coolers\Coolers.Models\bin\Debug\Coolers.Models.pdb
-c:\development\Coolers\Coolers.Models\bin\Debug\EntityFramework.dll
-c:\development\Coolers\Coolers.Models\bin\Debug\EntityFramework.SqlServer.dll
-c:\development\Coolers\Coolers.Models\bin\Debug\EntityFramework.xml
-c:\development\Coolers\Coolers.Models\bin\Debug\EntityFramework.SqlServer.xml
-c:\development\Coolers\Coolers.Models\obj\Debug\Coolers.Models.dll
-c:\development\Coolers\Coolers.Models\obj\Debug\Coolers.Models.pdb
